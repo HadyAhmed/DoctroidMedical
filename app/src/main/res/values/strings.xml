@@ -1,0 +1,50 @@
+<resources>
+    <!--TODO change the name of the app if needed -->
+    <string name="app_name">Doctroid Medical</string>
+
+    <!-- Splash Screen Headers -->
+    <string name="hospitals_header">Hospitals</string>
+    <string name="appointments_header">Appointments</string>
+    <string name="medical_news_header">Medical News</string>
+
+    <!-- Splash Screen Body -->
+    <string name="hospitals_body">Find hospitals in Egypt and near by</string>
+    <string name="appointments_body">Book appointments and get best treatment on one tap.</string>
+    <string name="medical_news_body">Your source for health news, Latest headlines news</string>
+
+    <!-- Main Activity String resources-->
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <!-- Forget Password layout string resources-->
+    <string name="forget_password_header">Forget Password</string>
+    <string name="forget_password_body">We just need your register E-mail ID to send reset mail</string>
+    <string name="email_hint">E-mail</string>
+    <string name="rest_password_btn_string">Rest Password</string>
+
+    <!-- Sign In layout string resources-->
+    <string name="sign_in_btn">Sign In</string>
+    <string name="password_hint">Password</string>
+    <string name="remember_string">Remember</string>
+    <string name="forget_password_ask">Forget password ?</string>
+    <string name="sign_in_btn_string">Sign In</string>
+    <string name="or_divider">Or</string>
+    <string name="create_account"><![CDATA[Don\'t Have Account ? <font color = \'#008ECC\'>Create Account.</font>]]></string>
+
+    <!-- Sign Up string resources-->
+    <string name="sign_up_header">Sign Up</string>
+    <string name="name_hint">Name</string>
+    <string name="mobile_number_hint">Mobile Number</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="birth_date_btn_string">Birth Date</string>
+
+
+    <!--Splash Activity String resources-->
+    <string name="next_btn_string">next</string>
+    <string name="back_btn_string">back</string>
+    <string name="getting_started_btn_string">Getting Started</string>
+
+
+</resources>

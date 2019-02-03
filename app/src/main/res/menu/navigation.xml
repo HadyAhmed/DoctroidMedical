@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_medicine_news"
+        android:icon="@drawable/medicine_news"
+        android:title="News" />
+
+    <item
+        android:id="@+id/navigation_medicine_result"
+        android:icon="@drawable/medical_result"
+        android:title="Result" />
+
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/nav_chat"
+        android:title="Chat" />
+
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/user"
+        android:title="Profile" />
+
+</menu>
