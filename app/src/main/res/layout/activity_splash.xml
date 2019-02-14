@@ -7,12 +7,13 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".activity.SplashActivity">
-
+    <!-- Layout To show up the fragment views for splash screen as first time for the user-->
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- Layout For the indicators aka 3 points at the bottom-->
     <LinearLayout
         android:id="@+id/dots_indicator"
         android:layout_width="match_parent"
@@ -22,6 +23,7 @@
         android:gravity="center"
         android:orientation="horizontal" />
 
+    <!-- select the next view page to show up -->
     <android.support.design.button.MaterialButton
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
@@ -33,6 +35,7 @@
         app:backgroundTint="@color/colorPrimary"
         app:rippleColor="@color/colorPrimaryDark" />
 
+    <!-- select the next view page to show up -->
     <android.support.design.button.MaterialButton
         android:id="@+id/back_button"
         style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -45,6 +48,7 @@
         android:visibility="invisible"
         app:rippleColor="@color/colorPrimaryDark" />
 
+    <!-- Start The Main Login Activity-->
     <android.support.design.button.MaterialButton
         android:id="@+id/getting_started_btn"
         android:layout_width="wrap_content"
@@ -52,8 +56,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:visibility="invisible"
         android:text="@string/getting_started_btn_string"
+        android:visibility="invisible"
         app:backgroundTint="@color/colorPrimary"
         app:rippleColor="@color/colorPrimaryDark" />
 

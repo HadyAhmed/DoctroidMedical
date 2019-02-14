@@ -16,12 +16,16 @@ import com.graduation.doctroidmedical.adapter.SliderAdapter;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
-public class SplashActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener, View.OnClickListener {
+public class SplashActivity extends AppCompatActivity implements
+        ViewPager.OnPageChangeListener,
+        View.OnClickListener {
+
     private LinearLayout dotLayout;
     private ViewPager viewPager;
     private MaterialButton nextBtn, backBtn, gettingStarted;
+    // Array of string will hold the dots indicators
     private TextView[] mDots;
+    // Detect current viewed page of the view pager
     private int currentPagePosition;
 
     @Override
@@ -29,12 +33,14 @@ public class SplashActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // Setup the views
         viewPager = findViewById(R.id.view_pager);
         dotLayout = findViewById(R.id.dots_indicator);
         nextBtn = findViewById(R.id.next_button);
         backBtn = findViewById(R.id.back_button);
         gettingStarted = findViewById(R.id.getting_started_btn);
 
+        // Setup for the view pager
         viewPager.setAdapter(new SliderAdapter(this));
         viewPager.addOnPageChangeListener(this);
         nextBtn.setOnClickListener(this);
@@ -91,13 +97,16 @@ public class SplashActivity extends AppCompatActivity
     }
 
     @Override
-    public void onClick(View v) {
-        int viewId = v.getId();
+    public void onClick(View view) {
+        int viewId = view.getId();
         if (viewId == R.id.next_button) {
+            // Set current page position for the view pager to currentPagePosition Variable
             viewPager.setCurrentItem(currentPagePosition + 1);
         } else if (viewId == R.id.back_button) {
+            // Set current page position for the view pager to currentPagePosition Variable
             viewPager.setCurrentItem(currentPagePosition - 1);
         } else if (viewId == R.id.getting_started_btn) {
+            // Start the login activity
             startActivity(new Intent(this, LoginActivity.class));
         }
     }

@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         //uncomment if action not needed
-        //super.onBackPressed();
         finishAffinity();
     }
+
 }

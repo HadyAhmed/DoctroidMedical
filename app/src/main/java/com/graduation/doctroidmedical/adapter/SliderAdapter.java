@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.graduation.doctroidmedical.R;
@@ -19,6 +18,7 @@ public class SliderAdapter extends PagerAdapter {
     public SliderAdapter(Context context) {
         this.context = context;
     }
+
 
     private int[] slideImages = {
             R.drawable.surgeon,
@@ -53,6 +53,7 @@ public class SliderAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
 
         ImageView iconView = view.findViewById(R.id.icon_image);
