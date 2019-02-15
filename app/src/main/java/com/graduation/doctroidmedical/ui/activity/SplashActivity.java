@@ -1,6 +1,7 @@
-package com.graduation.doctroidmedical.activity;
+package com.graduation.doctroidmedical.ui.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.button.MaterialButton;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,8 @@ public class SplashActivity extends AppCompatActivity implements
         ViewPager.OnPageChangeListener,
         View.OnClickListener {
 
+    private static final String SPLASH_PREF = "splash_pref";
+    private static final String FIST_TIME = "first_time_key";
     private LinearLayout dotLayout;
     private ViewPager viewPager;
     private MaterialButton nextBtn, backBtn, gettingStarted;
@@ -27,6 +30,26 @@ public class SplashActivity extends AppCompatActivity implements
     private TextView[] mDots;
     // Detect current viewed page of the view pager
     private int currentPagePosition;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Creating reference for splash screen activity
+
+        if (getSharedPreferences(SPLASH_PREF, MODE_PRIVATE).contains(FIST_TIME)) {
+            // check if it's the first time to launch or not
+            if (getSharedPreferences(SPLASH_PREF, MODE_PRIVATE).getBoolean(FIST_TIME, false)) {
+                if (getSharedPreferences(SignInActivity.USER_SHARED_PREF, MODE_PRIVATE).contains(SignInActivity.REMEMBER_ME)) {
+                    if (getSharedPreferences(SignInActivity.USER_SHARED_PREF, MODE_PRIVATE).getBoolean(SignInActivity.REMEMBER_ME, false)) {
+                        finish();
+                        startActivity(new Intent(this, MainActivity.class));
+                    }
+                }
+                finish();
+                startActivity(new Intent(this, SignInActivity.class));
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +130,9 @@ public class SplashActivity extends AppCompatActivity implements
             viewPager.setCurrentItem(currentPagePosition - 1);
         } else if (viewId == R.id.getting_started_btn) {
             // Start the login activity
+            SharedPreferences.Editor splashPref = getSharedPreferences(SPLASH_PREF, MODE_PRIVATE).edit();
+            splashPref.putBoolean(FIST_TIME, true)
+                    .apply();
             startActivity(new Intent(this, SignInActivity.class));
         }
     }

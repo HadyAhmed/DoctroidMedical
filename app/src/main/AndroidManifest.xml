@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.ForgetPassword" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.SignUpActivity">
+        <activity android:name=".ui.activity.ForgetPassword" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.SignUpActivity">
 
         </activity>
-        <activity android:name=".activity.SignInActivity" />
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name=".ui.activity.SignInActivity" />
+        <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

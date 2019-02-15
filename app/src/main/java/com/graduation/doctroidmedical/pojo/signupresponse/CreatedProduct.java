@@ -1,4 +1,4 @@
-package com.graduation.doctroidmedical.pojo;
+package com.graduation.doctroidmedical.pojo.signupresponse;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.graduation.doctroidmedical.pojo;
+package com.graduation.doctroidmedical.pojo.signupresponse;
 
 
 import android.support.annotation.NonNull;

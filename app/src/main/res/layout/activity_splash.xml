@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".activity.SplashActivity">
+    tools:context=".ui.fragment.activity.SplashActivity">
     <!-- Layout To show up the fragment views for splash screen as first time for the userModel-->
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"

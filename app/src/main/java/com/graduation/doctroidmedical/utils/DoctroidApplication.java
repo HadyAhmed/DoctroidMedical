@@ -2,6 +2,7 @@ package com.graduation.doctroidmedical.utils;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 public class DoctroidApplication extends Application {
@@ -11,7 +12,7 @@ public class DoctroidApplication extends Application {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
 
             @Override

@@ -1,10 +1,10 @@
 package com.graduation.doctroidmedical.utils;
 
 import com.google.gson.Gson;
-import com.graduation.doctroidmedical.pojo.LoginModel;
-import com.graduation.doctroidmedical.pojo.LoginResponse;
-import com.graduation.doctroidmedical.pojo.SignUpResponse;
-import com.graduation.doctroidmedical.pojo.User;
+import com.graduation.doctroidmedical.pojo.loginresponse.LoginModel;
+import com.graduation.doctroidmedical.pojo.loginresponse.LoginResponse;
+import com.graduation.doctroidmedical.pojo.signupresponse.SignUpResponse;
+import com.graduation.doctroidmedical.pojo.user.User;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;

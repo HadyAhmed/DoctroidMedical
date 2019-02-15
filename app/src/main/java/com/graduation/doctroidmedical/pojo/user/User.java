@@ -1,4 +1,4 @@
-package com.graduation.doctroidmedical.pojo;
+package com.graduation.doctroidmedical.pojo.user;
 
 import android.support.annotation.NonNull;
 

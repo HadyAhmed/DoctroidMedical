@@ -6,7 +6,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.SignUpActivity">
+        tools:context=".ui.fragment.activity.SignUpActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                     android:id="@+id/first_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapWords"
                     tools:ignore="Autofill,LabelFor" />
             </android.support.design.widget.TextInputLayout>
 
@@ -45,7 +45,7 @@
                     android:id="@+id/last_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapWords"
                     tools:ignore="Autofill,LabelFor" />
             </android.support.design.widget.TextInputLayout>
 
@@ -178,6 +178,13 @@
                     android:textAlignment="viewStart"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/sign_up_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible" />
 
             <android.support.design.button.MaterialButton
                 android:id="@+id/submit"

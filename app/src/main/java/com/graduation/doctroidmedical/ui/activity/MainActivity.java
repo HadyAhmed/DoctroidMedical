@@ -1,4 +1,4 @@
-package com.graduation.doctroidmedical.activity;
+package com.graduation.doctroidmedical.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -39,5 +39,14 @@ public class MainActivity extends AppCompatActivity
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSharedPreferences(SignInActivity.USER_SHARED_PREF, MODE_PRIVATE).getBoolean(SignInActivity.REMEMBER_ME, false)) {
+            finishAffinity();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
