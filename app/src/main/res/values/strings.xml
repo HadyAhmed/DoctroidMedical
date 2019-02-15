@@ -39,12 +39,20 @@
     <string name="mobile_number_hint">Mobile Number</string>
     <string name="confirm_password_hint">Confirm Password</string>
     <string name="birth_date_btn_string">Birth Date</string>
+    <string name="male">"Male"</string>
+    <string name="female">"Female"</string>
 
 
     <!--Splash Activity String resources-->
     <string name="next_btn_string">next</string>
     <string name="back_btn_string">back</string>
     <string name="getting_started_btn_string">Getting Started</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="address_hint">Address</string>
+    <string name="state_address_hint">State</string>
+    <string name="city_address_hint">City</string>
+    <string name="street_address_et">Street Name</string>
 
 
 </resources>

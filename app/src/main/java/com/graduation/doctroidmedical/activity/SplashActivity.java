@@ -107,7 +107,7 @@ public class SplashActivity extends AppCompatActivity implements
             viewPager.setCurrentItem(currentPagePosition - 1);
         } else if (viewId == R.id.getting_started_btn) {
             // Start the login activity
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, SignInActivity.class));
         }
     }
 }
