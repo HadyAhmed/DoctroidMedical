@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
-        tools:context=".ui.fragment.activity.SignInActivity">
+        tools:context=".home.ui.fragment.activity.SignInActivity">
 
         <TextView
             android:id="@+id/textView"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/username_layout"
             style="@style/LoginTextInputLayout"
             android:layout_width="0dp"
@@ -36,9 +36,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 tools:ignore="Autofill,LabelFor" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_layout"
             style="@style/LoginTextInputLayout"
             android:layout_width="0dp"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 tools:ignore="Autofill,LabelFor" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:id="@+id/remember_me"
@@ -75,7 +75,7 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/remember_me"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <android.support.design.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/login_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,43 +88,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/remember_me"
             app:rippleColor="@color/colorPrimaryDark" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/or_divider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
-
-        <android.support.design.button.MaterialButton
-            android:id="@+id/facebook_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/facebook_btn"
-            app:backgroundTint="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toStartOf="@+id/google_btn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <android.support.design.button.MaterialButton
-            android:id="@+id/google_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/google_btn"
-            app:backgroundTint="@android:color/holo_red_light"
-            app:layout_constraintBaseline_toBaselineOf="@+id/facebook_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/facebook_btn" />
 
         <ProgressBar
             android:id="@+id/login_progress_bar"
@@ -152,5 +115,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Don't Have Account ? Create Account" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
