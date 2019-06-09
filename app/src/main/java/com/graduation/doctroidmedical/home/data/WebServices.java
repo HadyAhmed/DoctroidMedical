@@ -2,6 +2,8 @@ package com.graduation.doctroidmedical.home.data;
 
 import com.google.gson.Gson;
 import com.graduation.doctroidmedical.home.pojo.article.ArticleResponse;
+import com.graduation.doctroidmedical.home.pojo.complain.request.ComplainBody;
+import com.graduation.doctroidmedical.home.pojo.complain.response.ComplainResponse;
 import com.graduation.doctroidmedical.home.pojo.employee.DoctorSearchResponse;
 import com.graduation.doctroidmedical.home.pojo.hospital.HospitalsResponse;
 import com.graduation.doctroidmedical.home.pojo.loginresponse.LoginModel;
@@ -70,4 +72,7 @@ public interface WebServices {
 
     @GET("user/profile")
     Call<ProfileResponse> getUserDetails(@Header("Authorization") String token);
+
+    @POST("complain")
+    Call<ComplainResponse> sendComplain(@Body ComplainBody complainBody);
 }

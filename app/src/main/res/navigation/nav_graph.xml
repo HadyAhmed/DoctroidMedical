@@ -59,7 +59,8 @@
     <fragment
         android:id="@+id/complainsFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.ComplainsFragment"
-        android:label="ComplainsFragment" />
+        android:label="ComplainsFragment"
+        tools:layout="@layout/fragment_complains" />
     <fragment
         android:id="@+id/articleDetailFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.ArticleDetailFragment"
