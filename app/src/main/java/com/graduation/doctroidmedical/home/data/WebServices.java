@@ -11,6 +11,8 @@ import com.graduation.doctroidmedical.home.pojo.loginresponse.LoginResponse;
 import com.graduation.doctroidmedical.home.pojo.profile.ProfileResponse;
 import com.graduation.doctroidmedical.home.pojo.room.Room;
 import com.graduation.doctroidmedical.home.pojo.schedule.ScheduleResponse;
+import com.graduation.doctroidmedical.home.pojo.schedule.request.ScheduleRequest;
+import com.graduation.doctroidmedical.home.pojo.schedule.response.ScheduleConfirmationResponse;
 import com.graduation.doctroidmedical.home.pojo.signupresponse.SignUpResponse;
 import com.graduation.doctroidmedical.home.pojo.user.User;
 
@@ -75,4 +77,7 @@ public interface WebServices {
 
     @POST("complain")
     Call<ComplainResponse> sendComplain(@Body ComplainBody complainBody);
+
+    @POST("appointment")
+    Call<ScheduleConfirmationResponse> sendSchedule(@Body ScheduleRequest scheduleRequest);
 }

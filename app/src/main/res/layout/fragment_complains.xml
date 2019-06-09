@@ -63,7 +63,7 @@
             android:background="@android:color/transparent"
             android:gravity="top"
             android:hint="write your complains"
-            android:inputType="text"
+            android:inputType="text|textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/sendComplainBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

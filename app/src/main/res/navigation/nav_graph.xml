@@ -55,7 +55,15 @@
         android:id="@+id/appointmentFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.AppointmentFragment"
         android:label="AppointmentFragment"
-        tools:layout="@layout/fragment_appointment" />
+        tools:layout="@layout/fragment_appointment">
+        <action
+            android:id="@+id/action_appointmentFragment_to_findAppointmentsFragment"
+            app:destination="@id/findAppointmentsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/complainsFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.ComplainsFragment"
@@ -84,4 +92,12 @@
         android:name="com.graduation.doctroidmedical.home.ui.fragment.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/findAppointmentsFragment"
+        android:name="com.graduation.doctroidmedical.home.ui.fragment.FindAppointmentsFragment"
+        android:label="FindAppointmentsFragment">
+        <argument
+            android:name="doctorId"
+            app:argType="string" />
+    </fragment>
 </navigation>

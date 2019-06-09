@@ -56,7 +56,7 @@ public class ProfileFragment extends Fragment {
         profileBinding.appointmentsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO: 6/9/2019 show appointments here
             }
         });
         profileBinding.logoutBtn.setOnClickListener(new View.OnClickListener() {

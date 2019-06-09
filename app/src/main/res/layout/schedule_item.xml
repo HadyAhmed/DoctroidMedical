@@ -3,7 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
+
+        <variable
+            name="scheduleModel"
+            type="com.graduation.doctroidmedical.home.pojo.schedule.ScheduleModel" />
+
+        <variable
+            name="onScheduleClick"
+            type="com.graduation.doctroidmedical.home.adapter.AppointmentAdapter.OnScheduleClickLister" />
+    </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -16,27 +25,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:adjustViewBounds="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars[0]" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addScheduleBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v)->onScheduleClick.sendSchedule(v,scheduleModel.scheduleId,scheduleModel.hospitalId,scheduleModel.userId)}"
+                android:text="Add Appointment"
+                app:icon="@android:drawable/ic_input_add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
                 android:id="@+id/hospitalName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_margin="8dp"
+                android:text="@{scheduleModel.hospitalName}"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addScheduleBtn"
                 tools:text="Hospital" />
 
             <View
@@ -49,7 +60,7 @@
                 android:background="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/hospitalName" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -57,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="First Name"
+                android:text="Full Name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -68,6 +79,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_condensed_bold"
+                android:text="@{scheduleModel.doctorName}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
-                android:text="Enrolled Id"
+                android:text="Begin"
                 app:layout_constraintEnd_toStartOf="@+id/textView7"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -92,9 +104,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="@font/roboto_condensed_bold"
+                android:text="@{scheduleModel.begin.substring(0,10)}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/sectionTv"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +121,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="Section"
+                android:text="Room"
                 app:layout_constraintBaseline_toBaselineOf="@id/textView5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -118,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/roboto_condensed_bold"
+                android:text="@{scheduleModel.roomName}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black"
                 app:layout_constraintBaseline_toBaselineOf="@id/enrolledIdTv"
@@ -126,59 +142,8 @@
                 app:layout_constraintStart_toEndOf="@+id/enrolledIdTv"
                 tools:text="#asd65" />
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="Date Effective"
-                app:layout_constraintEnd_toStartOf="@+id/textView11"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/enrolledIdTv" />
 
-            <TextView
-                android:id="@+id/dateEffectiveTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/roboto_condensed_bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/planTv"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9"
-                tools:text="13/2/123" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="Plan"
-                app:layout_constraintBaseline_toBaselineOf="@id/textView9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView9" />
-
-            <TextView
-                android:id="@+id/planTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/roboto_condensed_bold"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/black"
-                app:layout_constraintBaseline_toBaselineOf="@id/dateEffectiveTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/dateEffectiveTv"
-                tools:text="Hello World" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
 </layout>

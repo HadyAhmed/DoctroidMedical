@@ -2,7 +2,6 @@ package com.graduation.doctroidmedical.home.pojo.schedule;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.graduation.doctroidmedical.home.pojo.room.Room;
 
 
 public class ScheduleResponse {

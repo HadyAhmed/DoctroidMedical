@@ -13,13 +13,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.graduation.doctroidmedical.databinding.FragmentAppointmentBinding;
 import com.graduation.doctroidmedical.home.data.WebServices;
 import com.graduation.doctroidmedical.home.pojo.employee.DoctorSearchResponse;
 import com.graduation.doctroidmedical.home.pojo.hospital.HospitalsResponse;
 import com.graduation.doctroidmedical.home.pojo.room.Room;
-import com.graduation.doctroidmedical.home.pojo.schedule.ScheduleResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,36 +88,14 @@ public class AppointmentFragment extends Fragment {
         appointmentBinding.searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fetchSchedule(doctorId);
+                fetchSchedule(v, doctorId);
             }
         });
         return appointmentBinding.getRoot();
     }
 
-    private void fetchSchedule(String doctorId) {
-        Log.d(TAG, "fetchSchedule: " + doctorId);
-        appointmentBinding.searching.setVisibility(View.VISIBLE);
-        webService.getSchedules(doctorId).enqueue(new Callback<List<ScheduleResponse>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<ScheduleResponse>> call, @NonNull Response<List<ScheduleResponse>> response) {
-                appointmentBinding.searching.setVisibility(View.INVISIBLE);
-                if (response.body() != null && !response.body().isEmpty()) {
-                    for (int i = 0; i < response.body().size(); i++) {
-
-                        Log.d(TAG, "Searching for schedule" + response.body().get(i).getEmployee().getFristName());
-                    }
-                } else {
-                    Toast.makeText(context, "no schedule available for now", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<List<ScheduleResponse>> call, @NonNull Throwable t) {
-                appointmentBinding.searching.setVisibility(View.INVISIBLE);
-                Log.e(TAG, "onFailure: " + t.getMessage());
-                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void fetchSchedule(View v, String doctorId) {
+        Navigation.findNavController(v).navigate(AppointmentFragmentDirections.actionAppointmentFragmentToFindAppointmentsFragment(doctorId));
     }
 
     private void fetchHospitals() {
