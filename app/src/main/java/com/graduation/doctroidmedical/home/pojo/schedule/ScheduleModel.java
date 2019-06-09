@@ -9,6 +9,13 @@ public class ScheduleModel {
     private String scheduleId;
     private String userId;
 
+    public ScheduleModel(String begin, String hospitalName, String doctorName, String roomName) {
+        this.begin = begin;
+        this.hospitalName = hospitalName;
+        this.doctorName = doctorName;
+        this.roomName = roomName;
+    }
+
     public ScheduleModel(String begin, String hospitalName, String hospitalId, String doctorName, String roomName, String scheduleId, String userId) {
         this.begin = begin;
         this.hospitalName = hospitalName;

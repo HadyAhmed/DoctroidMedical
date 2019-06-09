@@ -34,7 +34,7 @@ public class FindAppointmentsFragment extends Fragment implements AppointmentAda
     private static final String TAG = "FindAppointmentsTag";
     private Context context;
     private WebServices webServices = WebServices.startService.create(WebServices.class);
-    private AppointmentAdapter appointmentAdapter = new AppointmentAdapter(this);
+    private AppointmentAdapter appointmentAdapter = new AppointmentAdapter(true, this);
     private String uid;
     private FragmentFindAppointmentBinding findAppointmentBinding;
 

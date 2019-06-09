@@ -16,9 +16,11 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     private List<ScheduleModel> scheduleModels;
     private LayoutInflater inflater;
     private OnScheduleClickLister onScheduleClickLister;
+    private boolean isItProfile;
 
-    public AppointmentAdapter(OnScheduleClickLister onScheduleClickLister) {
+    public AppointmentAdapter(boolean isItProfile, OnScheduleClickLister onScheduleClickLister) {
         this.onScheduleClickLister = onScheduleClickLister;
+        this.isItProfile = isItProfile;
     }
 
     public void setScheduleModels(List<ScheduleModel> scheduleModels) {
@@ -39,6 +41,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     public void onBindViewHolder(@NonNull AppointmentViewHolder holder, int position) {
         holder.setSchedule(scheduleModels.get(position));
         holder.setScheduleClickListener(onScheduleClickLister);
+        holder.showScheduleButton(isItProfile);
     }
 
     @Override
@@ -67,6 +70,10 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
         void setScheduleClickListener(OnScheduleClickLister scheduleClickListener) {
             this.scheduleItemBinding.setOnScheduleClick(scheduleClickListener);
+        }
+
+        void showScheduleButton(boolean showSchedule) {
+            this.scheduleItemBinding.addScheduleBtn.setVisibility(showSchedule ? View.VISIBLE : View.INVISIBLE);
         }
     }
 }

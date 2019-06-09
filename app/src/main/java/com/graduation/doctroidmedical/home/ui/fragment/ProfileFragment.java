@@ -12,7 +12,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import com.graduation.doctroidmedical.R;
 import com.graduation.doctroidmedical.databinding.FragmentProfileBinding;
 import com.graduation.doctroidmedical.home.data.WebServices;
 import com.graduation.doctroidmedical.home.pojo.profile.ProfileResponse;
@@ -56,7 +58,7 @@ public class ProfileFragment extends Fragment {
         profileBinding.appointmentsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 6/9/2019 show appointments here
+                Navigation.findNavController(v).navigate(R.id.action_profileFragment_to_appointmentHistory);
             }
         });
         profileBinding.logoutBtn.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,7 @@
 package com.graduation.doctroidmedical.home.data;
 
 import com.google.gson.Gson;
+import com.graduation.doctroidmedical.home.pojo.appointment.AppointmentsResponse;
 import com.graduation.doctroidmedical.home.pojo.article.ArticleResponse;
 import com.graduation.doctroidmedical.home.pojo.complain.request.ComplainBody;
 import com.graduation.doctroidmedical.home.pojo.complain.response.ComplainResponse;
@@ -80,4 +81,7 @@ public interface WebServices {
 
     @POST("appointment")
     Call<ScheduleConfirmationResponse> sendSchedule(@Body ScheduleRequest scheduleRequest);
+
+    @GET("appointment/history/{userId}")
+    Call<AppointmentsResponse> getUserAppointments(@Path("userId") String uid);
 }
