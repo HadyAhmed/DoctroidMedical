@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.graduation.doctroidmedical.databinding.FragmentHospitalBinding;
 import com.graduation.doctroidmedical.home.adapter.HospitalAdapter;
@@ -25,10 +26,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HospitalFragment extends Fragment {
+public class HospitalFragment extends Fragment implements HospitalAdapter.OnHospitalClickListener {
     private static final String TAG = "HospitalFragment";
     private FragmentHospitalBinding hospitalBinding;
-    private HospitalAdapter hospitalAdapter = new HospitalAdapter();
+    private HospitalAdapter hospitalAdapter = new HospitalAdapter(this);
     private Context context;
 
     @Override
@@ -53,7 +54,7 @@ public class HospitalFragment extends Fragment {
                     Log.d(TAG, "onResponse: success");
                     List<HospitalArrayItem> hospitalArrayItem = new ArrayList<>();
                     for (int i = 0; i < response.body().size(); i++) {
-                        hospitalArrayItem.add(new HospitalArrayItem(response.body().get(i).getName(), response.body().get(i).getPicture(), response.body().get(i).getDepartments()));
+                        hospitalArrayItem.add(new HospitalArrayItem(response.body().get(i).getId(), response.body().get(i).getName(), response.body().get(i).getPicture(), response.body().get(i).getDepartments()));
                     }
                     Log.d(TAG, "parsing... " + hospitalArrayItem.size());
                     hospitalAdapter.setHospitalItems(hospitalArrayItem);
@@ -68,5 +69,10 @@ public class HospitalFragment extends Fragment {
             }
         });
         return hospitalBinding.getRoot();
+    }
+
+    @Override
+    public void onHospitalClick(View v, String hospitalId) {
+        Navigation.findNavController(v).navigate(HospitalFragmentDirections.actionHospitalFragmentToHospitalInformationFragment(hospitalId));
     }
 }

@@ -56,24 +56,24 @@
                 tools:ignore="Autofill,LabelFor" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/remember_me"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/remember_string"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_layout" />
+        <!--<CheckBox-->
+        <!--android:id="@+id/remember_me"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:text="@string/remember_string"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/name_layout" />-->
 
-        <TextView
-            android:id="@+id/forget_password_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text="@string/forget_password_ask"
-            app:layout_constraintBaseline_toBaselineOf="@+id/remember_me"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <!--<TextView-->
+        <!--android:id="@+id/forget_password_tv"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:text="@string/forget_password_ask"-->
+        <!--app:layout_constraintBaseline_toBaselineOf="@+id/remember_me"-->
+        <!--app:layout_constraintEnd_toEndOf="parent" />-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login_btn"
@@ -86,7 +86,7 @@
             app:backgroundTint="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/remember_me"
+            app:layout_constraintTop_toBottomOf="@+id/name_layout"
             app:rippleColor="@color/colorPrimaryDark" />
 
         <ProgressBar

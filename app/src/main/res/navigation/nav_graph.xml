@@ -7,9 +7,17 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.graduation.doctroidmedical.home.ui.fragment.NewsFragment"
+        android:name="com.graduation.doctroidmedical.home.ui.fragment.ArticleFragment"
         android:label="NewsFragment"
-        tools:layout="@layout/news_fragment" />
+        tools:layout="@layout/news_fragment">
+        <action
+            android:id="@+id/action_newsFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/appointmentAndComplainsFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.AppointmentAndComplainsFragment"
@@ -34,13 +42,45 @@
         android:id="@+id/hospitalFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.HospitalFragment"
         android:label="HospitalFragment"
-        tools:layout="@layout/fragment_hospital" />
+        tools:layout="@layout/fragment_hospital">
+        <action
+            android:id="@+id/action_hospitalFragment_to_hospitalInformationFragment"
+            app:destination="@id/hospitalInformationFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
     <fragment
         android:id="@+id/appointmentFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.AppointmentFragment"
-        android:label="AppointmentFragment" />
+        android:label="AppointmentFragment"
+        tools:layout="@layout/fragment_appointment" />
     <fragment
         android:id="@+id/complainsFragment"
         android:name="com.graduation.doctroidmedical.home.ui.fragment.ComplainsFragment"
         android:label="ComplainsFragment" />
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.graduation.doctroidmedical.home.ui.fragment.ArticleDetailFragment"
+        android:label="ArticleDetailFragment"
+        tools:layout="@layout/article_item">
+        <argument
+            android:name="articleId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/hospitalInformationFragment"
+        android:name="com.graduation.doctroidmedical.home.ui.fragment.HospitalInformationFragment"
+        android:label="HospitalInformationFragment"
+        tools:layout="@layout/hospital_info_fragment">
+        <argument
+            android:name="hospitalId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.graduation.doctroidmedical.home.ui.fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

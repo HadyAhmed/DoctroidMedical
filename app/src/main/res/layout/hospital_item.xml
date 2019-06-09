@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="hospitalClickListener"
+            type="com.graduation.doctroidmedical.home.adapter.HospitalAdapter.OnHospitalClickListener" />
+
+        <variable
+            name="hospital"
+            type="com.graduation.doctroidmedical.home.pojo.hospital.HospitalArrayItem" />
+    </data>
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +23,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->hospitalClickListener.onHospitalClick(v,hospital.id)}">
 
             <ImageView
                 android:id="@+id/hospitalImage"
@@ -42,7 +54,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="4dp"
                     android:singleLine="true"
-                    android:text="@{}"
+                    android:text="@{hospital.name}"
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textColor="?colorPrimary"
                     tools:text="Jym Hospital" />

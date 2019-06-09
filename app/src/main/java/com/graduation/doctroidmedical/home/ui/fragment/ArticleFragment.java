@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.graduation.doctroidmedical.databinding.NewsFragmentBinding;
 import com.graduation.doctroidmedical.home.adapter.ArticleAdapter;
@@ -21,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewsFragment extends Fragment implements ArticleAdapter.OnArticleClickListener {
+public class ArticleFragment extends Fragment implements ArticleAdapter.OnArticleClickListener {
     private static final String TAG = "NewsFragmentTag";
     private ArticleAdapter articleAdapter;
     private NewsFragmentBinding layoutBinding;
@@ -46,6 +47,9 @@ public class NewsFragment extends Fragment implements ArticleAdapter.OnArticleCl
             @Override
             public void onResponse(@NonNull Call<List<ArticleResponse>> call, @NonNull Response<List<ArticleResponse>> response) {
                 if (response.body() != null) {
+                    for (int i = 0; i < response.body().size(); i++) {
+                        Log.d(TAG, "article id " + response.body().get(i).getId());
+                    }
                     articleAdapter.setArticleResponses(response.body());
                     layoutBinding.newLoadingProgress.setVisibility(View.INVISIBLE);
                 }
@@ -59,7 +63,7 @@ public class NewsFragment extends Fragment implements ArticleAdapter.OnArticleCl
     }
 
     @Override
-    public void onArticleClick(String articleId) {
-        Log.d(TAG, "onArticleClick: " + articleId);
+    public void onArticleClick(View v, String articleId) {
+        Navigation.findNavController(v).navigate(ArticleFragmentDirections.actionNewsFragmentToArticleDetailFragment(articleId));
     }
 }

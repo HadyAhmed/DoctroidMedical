@@ -103,6 +103,7 @@ public class AppointmentFragment extends Fragment {
                 appointmentBinding.searching.setVisibility(View.INVISIBLE);
                 if (response.body() != null && !response.body().isEmpty()) {
                     for (int i = 0; i < response.body().size(); i++) {
+
                         Log.d(TAG, "Searching for schedule" + response.body().get(i).getEmployee().getFristName());
                     }
                 } else {

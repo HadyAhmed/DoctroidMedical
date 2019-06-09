@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackground"
-            android:onClick="@{()->onArticleClick.onArticleClick(article.id)}">
+            android:onClick="@{(v)->onArticleClick.onArticleClick(v,article.id)}">
 
             <TextView
                 android:id="@+id/article_body"

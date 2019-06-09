@@ -1,12 +1,13 @@
 package com.graduation.doctroidmedical.home.adapter;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.graduation.doctroidmedical.databinding.NewsItemBinding;
+import com.graduation.doctroidmedical.databinding.ArticleItemBinding;
 import com.graduation.doctroidmedical.home.data.WebServices;
 import com.graduation.doctroidmedical.home.pojo.article.ArticleResponse;
 import com.squareup.picasso.Picasso;
@@ -33,7 +34,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         if (inflater == null) {
             inflater = LayoutInflater.from(viewGroup.getContext());
         }
-        return new ArticleViewHolder(NewsItemBinding.inflate(inflater, viewGroup, false));
+        return new ArticleViewHolder(ArticleItemBinding.inflate(inflater, viewGroup, false));
     }
 
     @Override
@@ -42,7 +43,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         viewHolder.setArticle(currentArticle);
         viewHolder.setArticleClickListener(onArticleClickListener);
         Picasso.get().load(WebServices.BASE_URL + WebServices.IMAGE_PATH + currentArticle.getPicture()).into(viewHolder.newsItemBinding.articleImage);
-
     }
 
     @Override
@@ -55,13 +55,13 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     }
 
     public interface OnArticleClickListener {
-        void onArticleClick(String articleId);
+        void onArticleClick(View v, String articleId);
     }
 
     class ArticleViewHolder extends RecyclerView.ViewHolder {
-        private NewsItemBinding newsItemBinding;
+        private ArticleItemBinding newsItemBinding;
 
-        ArticleViewHolder(@NonNull NewsItemBinding itemView) {
+        ArticleViewHolder(@NonNull ArticleItemBinding itemView) {
             super(itemView.getRoot());
             newsItemBinding = itemView;
 

@@ -2,7 +2,6 @@ package com.graduation.doctroidmedical.home.ui.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity
             navController.navigate(R.id.appointmentAndComplainsFragment);
             return true;
         } else if (i == R.id.navigation_user) {
-            Toast.makeText(MainActivity.this, "user", Toast.LENGTH_SHORT).show();
+            navController.navigate(R.id.profileFragment);
             return true;
         }
         return false;

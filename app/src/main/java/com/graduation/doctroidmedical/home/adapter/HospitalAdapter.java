@@ -1,6 +1,7 @@
 package com.graduation.doctroidmedical.home.adapter;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,10 +16,21 @@ import java.util.List;
 public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.HospitalViewHolder> {
     private List<HospitalArrayItem> hospitalItems;
     private LayoutInflater inflater;
+    private OnHospitalClickListener onHospitalClickListener;
+
+    public HospitalAdapter(OnHospitalClickListener onHospitalClickListener) {
+        this.onHospitalClickListener = onHospitalClickListener;
+    }
 
     public void setHospitalItems(List<HospitalArrayItem> hospitalItems) {
         this.hospitalItems = hospitalItems;
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull HospitalViewHolder hospitalViewHolder, int i) {
+        hospitalViewHolder.setOnHospitalClick(onHospitalClickListener);
+        hospitalViewHolder.setHospital(hospitalItems.get(i));
     }
 
     @NonNull
@@ -30,15 +42,8 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
         return new HospitalViewHolder(HospitalItemBinding.inflate(inflater, viewGroup, false));
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull HospitalViewHolder hospitalViewHolder, int i) {
-        Picasso.get().load("https://healthapi.herokuapp.com/upload" + hospitalItems.get(i).getPicture()).into(hospitalViewHolder.getHospitalItemBinding().hospitalImage);
-        hospitalViewHolder.getHospitalItemBinding().hospitalName.setText(hospitalItems.get(i).getName());
-        hospitalViewHolder.getHospitalItemBinding().departmentsName.setText("");
-        for (int j = 0; j < hospitalItems.get(i).getDepartmentList().size(); j++) {
-            hospitalViewHolder.getHospitalItemBinding().departmentsName.append(hospitalItems.get(i).getDepartmentList().get(j).getName() + ", ");
-        }
-
+    public interface OnHospitalClickListener {
+        void onHospitalClick(View v, String hospitalId);
     }
 
     @Override
@@ -57,8 +62,17 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.Hospit
             this.hospitalItemBinding = itemBinding;
         }
 
-        HospitalItemBinding getHospitalItemBinding() {
-            return hospitalItemBinding;
+        void setOnHospitalClick(OnHospitalClickListener onHospitalClick) {
+            this.hospitalItemBinding.setHospitalClickListener(onHospitalClick);
+        }
+
+        void setHospital(HospitalArrayItem hospital) {
+            this.hospitalItemBinding.setHospital(hospital);
+            Picasso.get().load("https://healthapi.herokuapp.com/upload" + hospital.getPicture()).into(this.hospitalItemBinding.hospitalImage);
+            this.hospitalItemBinding.departmentsName.setText("");
+            for (int j = 0; j < hospital.getDepartmentList().size(); j++) {
+                hospitalItemBinding.departmentsName.append(hospital.getDepartmentList().get(j).getName() + ", ");
+            }
         }
     }
 }

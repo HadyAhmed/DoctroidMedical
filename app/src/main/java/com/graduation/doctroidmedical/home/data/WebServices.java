@@ -6,6 +6,7 @@ import com.graduation.doctroidmedical.home.pojo.employee.DoctorSearchResponse;
 import com.graduation.doctroidmedical.home.pojo.hospital.HospitalsResponse;
 import com.graduation.doctroidmedical.home.pojo.loginresponse.LoginModel;
 import com.graduation.doctroidmedical.home.pojo.loginresponse.LoginResponse;
+import com.graduation.doctroidmedical.home.pojo.profile.ProfileResponse;
 import com.graduation.doctroidmedical.home.pojo.room.Room;
 import com.graduation.doctroidmedical.home.pojo.schedule.ScheduleResponse;
 import com.graduation.doctroidmedical.home.pojo.signupresponse.SignUpResponse;
@@ -18,6 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -48,8 +50,14 @@ public interface WebServices {
     @GET(ARTICLE)
     Call<List<ArticleResponse>> getArticles();
 
+    @GET(ARTICLE + "/{articleId}")
+    Call<ArticleResponse> getArticleDetail(@Path("articleId") String articleId);
+
     @GET("hospital")
     Call<List<HospitalsResponse>> getHospitals();
+
+    @GET("hospital/{id}")
+    Call<HospitalsResponse> getHospitalDetail(@Path("id") String id);
 
     @GET("room/byHospital/{hospitalId}")
     Call<List<Room>> getRooms(@Path("hospitalId") String hospitalId);
@@ -59,4 +67,7 @@ public interface WebServices {
 
     @GET("schedule/byEmployee/{doctorId}")
     Call<List<ScheduleResponse>> getSchedules(@Path("doctorId") String doctorId);
+
+    @GET("user/profile")
+    Call<ProfileResponse> getUserDetails(@Header("Authorization") String token);
 }
